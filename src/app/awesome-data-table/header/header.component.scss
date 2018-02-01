@@ -1,0 +1,67 @@
+.adata-table-header {
+    min-height: 25px;
+    margin-bottom: 10px;
+    .title {
+        margin: 20px 0 0 20px;
+        float: left;
+    }
+    .button-panel {
+        float: right;
+        margin: 15px 15px 0 0;        
+    }
+    .adata-dropdown-item {
+        padding: 0px 15px;
+        label {
+            display: block;
+            line-height: 1.5;
+        }
+    }
+    .column-selector-wrapper {
+        $dropDownWidth: 200px;
+        .dropdown-menu {
+            position: absolute;
+            left: calc(100% - #{$dropDownWidth});
+            min-width: #{$dropDownWidth};
+        }
+    }
+    .btn {
+        outline: none !important;
+        border-radius: 2px;
+        font-size: .95rem;
+        font-family: inherit;
+        line-height: 1.25;
+    }
+    .btn-flat {
+        border-color: transparent !important;
+        border-radius: 2px;
+        background-color: transparent;
+        text-transform: uppercase;
+        &:active, &.active {
+            box-shadow: 0 0 0 #000;
+        }
+    
+        &.text-white { color: #fff !important; }
+    
+        &[disabled],
+        &.disabled {
+            // color: rgba(255,255,255,.45) !important;
+            background-color: transparent !important;
+        }
+    
+        &.btn-flat-icon {
+            border-radius: 50%;
+            font-size: 24px;
+            height: 32px;
+            width: 32px;
+            padding: 0;
+            overflow: hidden;
+            color: inherit !important;
+            > em {
+                line-height: 32px;
+            }
+            &:hover, &:focus, &:active {
+                background-color: rgba(158,158,158,.2) !important;
+            }
+        }
+    }
+}

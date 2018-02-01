@@ -1,0 +1,61 @@
+<div class="adata-table-header clearfix">
+    <h5 class="title" [textContent]="adataTable.headerTitle"></h5>
+    <div class="button-panel">
+        <a class="btn btn-flat btn-flat-icon" href="javascript:"
+            (click)="adataTable.reloadItems()"
+            *ngIf="adataTable.showReloadButton">
+            <i class="ion-android-sync"></i>
+        </a>
+        <a class="btn btn-flat btn-flat-icon" href="javascript:"
+            (click)="adataTable.downloadItems()"
+            *ngIf="adataTable.showDownloadButton">
+            <i class="ion-android-download"></i>
+        </a>
+        <a class="btn btn-flat btn-flat-icon" href="javascript:" 
+            [class.active]="columnSelectorOpen"
+            (click)="settingsClick($event)" >
+            <i class="ion-android-options"></i>
+        </a>
+        <div class="column-selector-wrapper dropdown" (click)="$event.stopPropagation()">
+            <div *ngIf="columnSelectorOpen" class="dropdown-menu dropdown-menu-right show">
+                <h6 class="dropdown-header" [textContent]="adataTable.translations.columnsMenuHeaderText"></h6>
+                <div class="adata-dropdown-item">
+                    <div *ngIf="adataTable.expandableRows">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" [(ngModel)]="adataTable.expandColumnVisible" class="custom-control-input"/>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{adataTable.translations.expandColumn}}</span>
+                        </label>
+                    </div>
+                    <div *ngIf="adataTable.indexColumn">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" [(ngModel)]="adataTable.indexColumnVisible" class="custom-control-input"/>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{adataTable.translations.indexColumn}}</span>
+                        </label>
+                    </div>
+                    <div *ngIf="adataTable.selectColumn">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" [(ngModel)]="adataTable.selectColumnVisible" class="custom-control-input"/>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{adataTable.translations.selectColumn}}</span>
+                        </label>
+                    </div>
+                    <div *ngFor="let column of adataTable.columns">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" [(ngModel)]="column.visible" class="custom-control-input"/>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description" [textContent]="column.header"></span>
+                        </label>
+                    </div>
+                </div>
+                <h6 class="dropdown-header" [textContent]="adataTable.translations.rowsMenuHeaderText"></h6>
+                <div class="adata-dropdown-item">
+                    <select class="custom-select" [(ngModel)]="adataTable.limit" (ngModelChange)="onLimitValueChange($event)">
+                        <option *ngFor="let row of adataTable.getRowsLimitList()" [value]="row">{{row}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

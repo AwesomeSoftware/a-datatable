@@ -1,0 +1,132 @@
+$gray-base: #a2a2a2;
+
+/* bootstrap override: */
+:host /deep/ {
+    .adata-table.table > tbody+tbody {
+        border-top: none;
+    }
+    .adata-table.table td {
+        vertical-align: middle;
+    }
+}
+
+/* Bootstrap striped table cannot be used here, because of the expandable rows */
+:host /deep/ .table-striped {
+    .row-odd,
+    .row-even:hover {
+        background-color: rgba($gray-base,.06);
+    }
+    .row-even { 
+        background-color: transparent;
+    }
+}
+
+/* header cells: */
+.adata-table {
+    margin-bottom: 0;    
+    .column-header {
+        position: relative;
+    }
+    .expand-column-header {
+        width: 50px;
+    }
+    .select-column-header {
+        width: 50px;
+        text-align: center;
+    }
+    .index-column-header {
+        width: 40px;
+    }
+    .column-header.sortable {
+        cursor: pointer;
+    }
+    .column-header .column-sort-icon {
+        margin-left: 5px;
+    }
+    .column-header.sortable:not(:hover):not(.sorted) .column-sort-icon {
+        visibility: hidden;
+        /*display: none;*/
+    }
+    .column-header.resizable .column-sort-icon {
+        margin: 0 8px;
+    }
+    .column-header .column-sort-icon .column-sortable-icon {
+        color: lightgray;
+    }
+    .column-header .column-resize-handle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        width: 8px;
+        height: 100%;
+        cursor: col-resize;
+    }
+}
+
+/* cover: */
+.adata-table-box {
+    position: relative;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    padding-bottom: 15px;
+    .loading-cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $gray-base;
+        top: 0;
+     }
+}
+
+/* Fix alignment of custom control in select column */
+:host /deep/ {
+    .select-column-header .custom-control,
+    .select-column .custom-control {
+        display: block;
+        margin: 0 auto;
+        width: 21px;
+    }
+}
+
+// Extra table styles
+.table {
+    tr, td, th {
+        border-bottom-color: rgba(162, 162, 162, 0.26) !important;
+        border-right-color: rgba(162, 162, 162, 0.26) !important;
+    }
+    thead > tr > td {
+        vertical-align: middle;
+    }
+    > thead > tr > th {
+        border-bottom-width: 1px;
+        border-color: rgba(162, 162, 162, 0.16);
+        position: relative;
+        text-overflow: ellipsis;
+        font-weight: 700;
+        line-height: initial;
+        letter-spacing: 0;
+        height: auto;
+        font-size: 12px;
+        padding: 0.75rem !important;
+        padding-bottom: 8px !important;
+        vertical-align: middle;
+    }
+    &:not(.table-bordered) thead th,
+    &:not(.table-bordered) tbody:first-child tr:first-child td {
+        border-top: none;
+    }
+    &:not(.table-bordered):not(.table-no-first-last-border) > thead > tr > td, 
+    &:not(.table-bordered):not(.table-no-first-last-border) > thead > tr > th, 
+    &:not(.table-bordered):not(.table-no-first-last-border) > tbody:last-child > tr:last-child > td,
+    &:not(.table-bordered):not(.table-no-first-last-border) > tbody:last-child {
+        border-bottom: 2px solid rgba(162, 162, 162, 0.26);
+    }
+}
+
+td {
+    &.money, &.date {
+        min-width: 140px;
+    }
+}

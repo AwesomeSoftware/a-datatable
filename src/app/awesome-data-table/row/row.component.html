@@ -1,0 +1,37 @@
+<tr	class="adata-table-row"
+    [title]="getTooltip()"
+    [style.background-color]="adataTable.getRowColor(item, index, _this)"
+    [class.row-odd]="index % 2 === 0"
+    [class.row-even]="index % 2 === 1"
+    [class.selected]="selected"
+    [class.clickable]="adataTable.selectOnRowClick"
+    (dblclick)="adataTable.rowDoubleClicked(_this, $event)"
+    (click)="adataTable.rowClicked(_this, $event)"
+    >
+    <td [hide]="!adataTable.expandColumnVisible" (click)="expandRow($event)" class="row-expand-button">
+        <i [ngClass]="{'fa-caret-right': !expanded, 'fa-caret-down': expanded}" 
+        class="fa fa-lg"></i>
+    </td>
+    <td [hide]="!adataTable.indexColumnVisible" class="index-column" [textContent]="displayIndex"></td>
+    <td [hide]="!adataTable.selectColumnVisible" class="select-column">
+        <label class="custom-control custom-checkbox">
+            <input [(ngModel)]="selected" 
+                    name="radio-stacked" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+        </label>
+    </td>
+    <td *ngFor="let column of adataTable.columns" [hide]="!column.visible" [ngClass]="column.styleClassObject" class="data-column"
+        [style.background-color]="column.getCellColor(_this, index)">
+        <div *ngIf="!column.cellTemplate" 
+            [textContent]="item[column.property]" 
+            [ngClass]="{'text-right': column.alignRight}"></div>
+        <div *ngIf="column.cellTemplate" 
+            [ngClass]="{'text-right': column.alignRight}"
+            [ngTemplateOutlet]="column.cellTemplate" [ngTemplateOutletContext]="{column: column, row: _this, item: item}"></div>
+    </td>
+</tr>
+<tr *ngIf="adataTable.expandableRows && expanded" class="row-expansion">
+    <td [attr.colspan]="adataTable.columnCount">
+        <div [ngTemplateOutlet]="adataTable.expandTemplate" [ngTemplateOutletContext]="{row: _this, item: item}"></div>
+    </td>
+</tr>
