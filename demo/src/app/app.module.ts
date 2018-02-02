@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AwesomeDataTableModule } from './awesome-data-table/awesome-data-table.module';
+
 
 import { AppComponent } from './app.component';
+import { AwesomeDataTableModule } from '../../../src/awesome-data-table/awesome-data-table.module';
+
 
 @NgModule({
   declarations: [

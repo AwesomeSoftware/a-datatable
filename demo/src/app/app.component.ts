@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AwesomeDataTableParams } from './awesome-data-table/shared/params/awesome-data-table-params';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',

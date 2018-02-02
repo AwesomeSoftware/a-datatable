@@ -1,5 +1,5 @@
 {
-  "name": "a-datatable",
+  "name": "awesome-datatable",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -28,6 +28,17 @@
     "ionicons": "2.0.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=4.3.0 || >5.0.0",
+    "@angular/compiler": ">=4.3.0 || >5.0.0",
+    "@angular/core": ">=4.3.0 || >5.0.0",
+    "@angular/forms": ">=4.3.0 || >5.0.0",
+    "bootstrap": "^4.0.0-beta.2",
+    "font-awesome": "^4.7.0",
+    "ionicons": "2.0.1",
+    "typescript": ">=2.3.0",
+    "rxjs": ">=5.4.3"
   },
   "devDependencies": {
     "@angular/cli": "1.6.6",
