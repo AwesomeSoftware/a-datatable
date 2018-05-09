@@ -1,17 +1,30 @@
 {
-  "name": "awesome-datatable",
-  "version": "0.0.0",
+  "name": "a-datatable",
+  "version": "1.0.0",
+  "description": "Angular5 data table for Bootstrap",
+  "author": "Anton Kozyritskiy <anton.kozyritskiy@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "angular",
+    "datatable",
+    "bootstrap"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:awesomesoftware/a-datatable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/awesomesoftware/a-datatable/issues"
+  },
+  "homepage": "https://github.com/AwesomeSoftware/a-datatable#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json"
   },
-  "private": true,
+  "private": false,
+  "main": "bundles/awesome-datatable.umd.js",
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
