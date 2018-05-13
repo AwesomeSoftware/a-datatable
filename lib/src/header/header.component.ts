@@ -3,14 +3,11 @@ import { Component, Inject, forwardRef, Host } from '@angular/core';
 import { AwesomeDataTable } from './../table/table.component';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'adata-table-header',
   templateUrl: './header.component.html',
   styleUrls: ['header.component.scss']
 })
-// tslint:disable-next-line:component-class-suffix
 export class AwesomeDataTableHeader {
-
     columnSelectorOpen = false;
 
     @Host() _closeSelector() {

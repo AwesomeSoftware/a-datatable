@@ -4,17 +4,17 @@
         <a class="btn btn-flat btn-flat-icon" href="javascript:"
             (click)="adataTable.reloadItems()"
             *ngIf="adataTable.showReloadButton">
-            <i class="ion-android-sync"></i>
+            <i class="fa fa-refresh"></i>
         </a>
         <a class="btn btn-flat btn-flat-icon" href="javascript:"
             (click)="adataTable.downloadItems()"
             *ngIf="adataTable.showDownloadButton">
-            <i class="ion-android-download"></i>
+            <i class="fa fa-download"></i>
         </a>
         <a class="btn btn-flat btn-flat-icon" href="javascript:" 
             [class.active]="columnSelectorOpen"
             (click)="settingsClick($event)" >
-            <i class="ion-android-options"></i>
+            <i class="fa fa-cog"></i>
         </a>
         <div class="column-selector-wrapper dropdown" (click)="$event.stopPropagation()">
             <div *ngIf="columnSelectorOpen" class="dropdown-menu dropdown-menu-right show">

@@ -3,12 +3,10 @@ import { Component, Input, Inject, forwardRef, Output, EventEmitter, OnDestroy }
 import { AwesomeDataTable } from './../table/table.component';
 
 @Component({
-    // tslint:disable-next-line:component-selector
     selector: '[adataTableRow]',
     templateUrl: './row.component.html',
     styleUrls: ['./row.component.scss']
 })
-// tslint:disable-next-line:component-class-suffix
 export class AwesomeDataTableRow implements OnDestroy {
 
     @Input() item: any;

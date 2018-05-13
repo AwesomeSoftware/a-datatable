@@ -12,12 +12,10 @@ import { AwesomeDataTableRow } from './../row/row.component';
 import { drag } from './../shared';
 
 @Component({
-    // tslint:disable-next-line:component-selector
     selector: 'adata-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss']
 })
-// tslint:disable-next-line:component-class-suffix
 export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
 
     private _items: any[] = [];
@@ -35,14 +33,14 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
 
     @Input() itemCount: number;
 
-    // UI components:
+    // UI components
 
     @ContentChildren(AwesomeDataTableColumn) columns: QueryList<AwesomeDataTableColumn>;
     @ViewChildren(AwesomeDataTableRow) rows: QueryList<AwesomeDataTableRow>;
     @ContentChild('dataTableExpand') expandTemplate: TemplateRef<any>;
     @Input() noDataTemplate: TemplateRef<any>;
 
-    // One-time optional bindings with default values:
+    // One-time optional bindings with default values
 
     @Input() headerTitle: string;
     @Input() header = true;
@@ -63,7 +61,7 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
     @Input() showReloadButton = true;
     @Input() cssClass = 'table-hover';
 
-    // UI state without input:
+    // UI state without input
 
     indexColumnVisible: boolean;
     selectColumnVisible: boolean;
@@ -176,14 +174,12 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
     }
 
     // Reloading:
-    // tslint:disable-next-line:member-ordering
     _reloading = false;
 
     get reloading() {
         return this._reloading;
     }
 
-    // tslint:disable-next-line:member-ordering
     @Output() reload = new EventEmitter();
 
     reloadItems() {
@@ -198,8 +194,8 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         this._reloading = false;
     }
 
-    // tslint:disable-next-line:member-ordering
-    _displayParams = <AwesomeDataTableParams>{}; // params of the last finished reload
+    // params of the last finished reload
+    _displayParams = <AwesomeDataTableParams>{};
 
     get displayParams() {
         return this._displayParams;
@@ -215,7 +211,6 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         };
     }
 
-    // tslint:disable-next-line:member-ordering
     _scheduledReload: any = null;
 
     // for avoiding cascading reloads if multiple params are set at once:
@@ -229,7 +224,6 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
     }
 
     // Download
-    // tslint:disable-next-line:member-ordering
     @Output() download = new EventEmitter();
 
     downloadItems() {
@@ -238,17 +232,11 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
 
     // event handlers:
 
-    // tslint:disable-next-line:member-ordering
     @Output() rowClick = new EventEmitter();
-    // tslint:disable-next-line:member-ordering
     @Output() rowDoubleClick = new EventEmitter();
-    // tslint:disable-next-line:member-ordering
     @Output() headerClick = new EventEmitter();
-    // tslint:disable-next-line:member-ordering
     @Output() cellClick = new EventEmitter();
-    // tslint:disable-next-line:member-ordering
     @Output() rowExpandChange = new EventEmitter();
-    // tslint:disable-next-line:member-ordering
     @Output() rowSelectChange = new EventEmitter();
 
     private rowClicked(row: AwesomeDataTableRow, event: Event) {
@@ -313,14 +301,11 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         }
     }
 
-    // selection:
+    // selection
 
-    // tslint:disable-next-line:member-ordering
     selectedRow: AwesomeDataTableRow;
-    // tslint:disable-next-line:member-ordering
     selectedRows: AwesomeDataTableRow[] = [];
 
-    // tslint:disable-next-line:member-ordering
     private _selectAllCheckbox = false;
 
     get selectAllCheckbox() {
@@ -368,15 +353,14 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         this.rowExpandChange.emit(row);
     }
 
-    // other:
+    // other
 
     get substituteItems() {
         return Array.from({length: this.displayParams.limit - this.items.length});
     }
 
-    // column resizing:
+    // column resizing
 
-    // tslint:disable-next-line:member-ordering
     private _resizeInProgress = false;
 
     private resizeColumnStart(event: MouseEvent, column: AwesomeDataTableColumn, columnElement: HTMLElement) {
@@ -391,15 +375,13 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         });
     }
 
-    // tslint:disable-next-line:member-ordering
     resizeLimit = 30;
 
     private _isResizeInLimit(columnElement: HTMLElement, dx: number) {
-        /* This is needed because CSS min-width didn't work on table-layout: fixed.
-         Without the limits, resizing can make the next column disappear completely,
-         and even increase the table width. The current implementation suffers from the fact,
-         that offsetWidth sometimes contains out-of-date values. */
-        // tslint:disable-next-line:max-line-length
+        // This is needed because CSS min-width didn't work on table-layout: fixed.
+        // Without the limits, resizing can make the next column disappear completely,
+        // and even increase the table width. The current implementation suffers from the fact,
+        // that offsetWidth sometimes contains out-of-date values.
         if ((dx < 0 && (columnElement.offsetWidth + dx) <= this.resizeLimit) || !columnElement.nextElementSibling || // resizing doesn't make sense for the last visible column
             (dx >= 0 && ((<HTMLElement> columnElement.nextElementSibling).offsetWidth + dx) <= this.resizeLimit)) {
             return false;
@@ -407,7 +389,6 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         return true;
     }
 
-    // tslint:disable-next-line:member-ordering
     private rowsLimitList: number[] = [];
 
     public getRowsLimitList(): number[] {

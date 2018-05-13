@@ -4,13 +4,10 @@ import { AwesomeDataTableRow } from './../row/row.component';
 import { CellCallback, AwesomeDataTableSortCallback } from './../shared';
 
 @Directive({
-    // tslint:disable-next-line:directive-selector
     selector: 'adata-table-column'
 })
-// tslint:disable-next-line:directive-class-suffix
 export class AwesomeDataTableColumn implements OnInit {
-
-    // init:
+    // init
     @Input() header: string;
     @Input() sortable = false;
     @Input() resizable = false;
@@ -19,7 +16,7 @@ export class AwesomeDataTableColumn implements OnInit {
     @Input() cellColors: CellCallback;
     @Input() customSort: AwesomeDataTableSortCallback;
 
-    // init and state:
+    // init and state
     @Input() width: number | string;
     @Input() visible = true;
     @Input() alignRight = false;
@@ -27,14 +24,14 @@ export class AwesomeDataTableColumn implements OnInit {
     @ContentChild('adataTableCell') cellTemplate: any;
     @ContentChild('adataTableHeader') headerTemplate: any;
 
-    private styleClassObject = {}; // for [ngClass]
+    // for [ngClass]
+    private styleClassObject = {};
 
     getCellColor(row: AwesomeDataTableRow, index: number) {
         if (this.cellColors !== undefined) {
             return (<CellCallback>this.cellColors)(row.item, row, this, index);
         }
     }
-
 
     ngOnInit() {
         this.initCellClass();
