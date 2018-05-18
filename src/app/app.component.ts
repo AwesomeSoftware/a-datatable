@@ -35,7 +35,7 @@ export class AppComponent {
   ];
   public usersCount = this.users.length;
 
-  public loadUsers() {
+  public loadUsers(e?) {
     this.users = this.users;
   }
 }

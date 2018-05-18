@@ -1,6 +1,6 @@
 {
   "name": "a-datatable-demo",
-  "version": "1.6.0",
+  "version": "1.6.3",
   "description": "Awesome data table for Bootstrap applications.",
   "private": false,
   "homepage": "https://github.com/AwesomeSoftware/a-datatable#readme",
@@ -25,7 +25,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run lib:run && ng serve",
-    "build": "npm run lib:run && ng build",
+    "build": "npm run lib:run && ng build --aot",
     "test": "npm run lib:run && ng test",
     "lint": "npm run lib:run && ng lint",
     "e2e": "npm run lib:run && ng e2e",

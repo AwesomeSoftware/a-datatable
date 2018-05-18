@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,35 +8,28 @@ import { AwesomeDataTableRow } from './row/row.component';
 import { AwesomeDataTablePagination } from './pagination/pagination.component';
 import { AwesomeDataTableHeader } from './header/header.component';
 
-import { PixelConverterPipe } from './shared';
-import { HideDirective } from './shared';
-import { MinPipe } from './shared';
+import { PixelConverterPipe } from './shared/index';
+import { HideDirective } from './shared/index';
+import { MinPipe } from './shared/index';
+
+let MODULES = [
+    AwesomeDataTable,
+    AwesomeDataTableColumn,
+    AwesomeDataTableRow,
+    AwesomeDataTablePagination,
+    AwesomeDataTableHeader,
+    PixelConverterPipe,
+    HideDirective,
+    MinPipe
+];
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule
     ],
-    declarations: [
-        AwesomeDataTable,
-        AwesomeDataTableColumn,
-        AwesomeDataTableRow,
-        AwesomeDataTablePagination,
-        AwesomeDataTableHeader,
-        PixelConverterPipe,
-        HideDirective,
-        MinPipe
-    ],
-    exports: [
-        AwesomeDataTable,
-        AwesomeDataTableColumn,
-        AwesomeDataTableRow,
-        AwesomeDataTablePagination,
-        AwesomeDataTableHeader,
-        PixelConverterPipe,
-        HideDirective,
-        MinPipe
-    ]
+    declarations: MODULES,
+    exports: MODULES
 })
 export class AwesomeDataTableModule {
 }
