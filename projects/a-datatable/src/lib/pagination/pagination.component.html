@@ -1,0 +1,25 @@
+<div class="pagination-box">
+    <div class="clearfix">
+        <span class="float-md-left text-gray page-number"
+                [textContent]="adataTable.translations.paginationResult((adataTable.offset + 1), ([adataTable.offset + adataTable.limit , adataTable.itemCount] | min), (adataTable.itemCount))"></span>
+        <nav class="float-md-right">
+            <ul class="pagination">
+                <li class="page-item disabled" [ngClass]="{'disabled':!btnPrevAvaialble}">
+                    <button type="button" class="page-link" (click)="pageFirst(btnPrevAvaialble)"><span class="fa fa-angle-double-left"></span></button>
+                </li>
+                <li class="page-item disabled" [ngClass]="{'disabled':!btnPrevAvaialble}">
+                    <button type="button" class="page-link" (click)="pageBack(btnPrevAvaialble)"><span class="fa fa-angle-left"></span></button>
+                </li>
+                <li class="page-item" *ngFor="let p of pages;" [ngClass]="{'active':page-1==p}">
+                    <button type="button" class="page-link" (click)="pageNavigate(p)" [textContent]="p+1"></button>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled':!btnNextAvaialble}">
+                    <button type="button" class="page-link" (click)="pageForward(btnNextAvaialble)"><span class="fa fa-angle-right"></span></button>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled':!btnNextAvaialble}">
+                    <button type="button" class="page-link" (click)="pageLast(btnNextAvaialble)"><span class="fa fa-angle-double-right"></span></button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

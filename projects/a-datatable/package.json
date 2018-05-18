@@ -1,0 +1,31 @@
+{
+  "name": "a-datatable",
+  "version": "VERSION",
+  "description": "Angular5 data table for Bootstrap",
+  "private": false,
+  "homepage": "https://github.com/AwesomeSoftware/a-datatable#readme",
+  "author": {
+    "name": "Anton Kozyritskiy",
+    "url": "http://github.com/akozyritskiy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:awesomesoftware/a-datatable.git"
+  },
+  "keywords": [
+    "angular",
+    "ng2",
+    "datatable",
+    "bootstrap"
+  ],
+  "bugs": {
+    "url": "https://github.com/awesomesoftware/a-datatable/issues"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "bootstrap": "^4.0.0-beta.2 || ^4.0.0",
+    "font-awesome": "^4.4.0"
+  }
+}
