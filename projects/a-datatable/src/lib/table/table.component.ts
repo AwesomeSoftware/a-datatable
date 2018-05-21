@@ -31,7 +31,9 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
         }
     }
 
-    @Input() itemCount: number;
+    get itemCount(): number {
+        return this._items.length;
+    }
 
     // UI components
 
