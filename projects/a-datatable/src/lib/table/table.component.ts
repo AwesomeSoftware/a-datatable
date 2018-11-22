@@ -64,6 +64,7 @@ export class AwesomeDataTable implements AwesomeDataTableParams, OnInit {
     @Input() showReloading = false;
     @Input() showDownloadButton = false;
     @Input() showReloadButton = true;
+    @Input() showColumnSelectorButton = true;
     @Input() cssClass = 'table-hover';
 
     // UI state without input

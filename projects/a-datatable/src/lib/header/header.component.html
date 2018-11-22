@@ -13,7 +13,8 @@
         </a>
         <a class="btn btn-flat btn-flat-icon" href="javascript:" 
             [class.active]="columnSelectorOpen"
-            (click)="settingsClick($event)" >
+            (click)="settingsClick($event)"
+            *ngIf="adataTable.showColumnSelectorButton">
             <i class="fa fa-cog"></i>
         </a>
         <div class="column-selector-wrapper dropdown" (click)="$event.stopPropagation()">
